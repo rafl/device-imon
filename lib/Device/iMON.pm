@@ -74,8 +74,6 @@ class Device::iMON {
     }
 
     before send_bytes (Str $bytes where { length($_) == 8 }) {
-        use Data::Dump qw/pp/;
-        pp unpack('B*', $bytes);
         $self->write_watcher unless $self->has_write_watcher;
     }
 
